@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <script src="conversational-ai/app.js"></script>
+                       <script src=" backend/server.js "></script>
+                        <title>Document</title>
+</head>
+<body>
+                        <!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h1>This is my knowlege</h1>
+
+<button type="button" onclick="tableToCSV()" >   Click to Download</button>
+
+    <script type="text/javascript">
+        function tableToCSV() {
+
+            // Variable to store the final csv data
+            let csv_data = [];
+
+            // Get each row data
+            let rows = document.getElementsByTagName('tr');
+            for (let i = 0; i < rows.length; i++) {
+
+                // Get each column data
+                let cols = rows[i].querySelectorAll('td,th');
+
+                // Stores each csv row data
+                let csvrow = [];
+                for (let j = 0; j < cols.length; j++) {
+
+                    // Get the text data of each cell
+                    // of a row and push it to csvrow
+                    csvrow.push(cols[j].innerHTML);
+                }
+
+                // Combine each column value with comma
+                csv_data.push(csvrow.join(","));
+            }
+
+            // Combine each row data with new line character
+            csv_data = csv_data.join('\n');
+
+            // Call this function to download csv file  
+            downloadCSVFile(csv_data);
+
+        }
+
+        function downloadCSVFile(csv_data) {
+
+            // Create CSV file object and feed
+            // our csv_data into it
+            CSVFile = new Blob([csv_data], {
+                type: "text/csv"
+            });
+
+            // Create to temporary link to initiate
+            // download process
+            let temp_link = document.createElement('a');
+
+            // Download csv file
+            temp_link.download = "GfG.csv";
+            let url = window.URL.createObjectURL(CSVFile);
+            temp_link.href = url;
+
+            // This link should not be displayed
+            temp_link.style.display = "none";
+            document.body.appendChild(temp_link);
+
+            // Automatically click the link to
+            // trigger download
+            temp_link.click();
+            document.body.removeChild(temp_link);
+        }
+    </script>
+
+<table>
+  <tr>
+    <th>FRAMWORK</th>
+    <th  >SKILLS I HAVE</th>
+   
+  </tr>
+  <tr>
+    <td>DJANGO</td>
+    <td>postgress sql, python, restapi, org, pypi,jquery ui, npm </td>
+    
+  </tr>
+  <tr>
+    <td>SAP UI5 (FIORI)</td>
+    <td>xml, html5, css3, javascript, sql, sap ui5 sdk, odata,json model, es5, northwind, sap btp cockpit , northwind, sap btp cockpit ,freelancer  </td>
+  </tr>
+  <tr>
+    <td>PYTHON FULL STACK WEB DEVELOPER</td>
+    <td>python, javascript, sql, jquery ui, bootstrap frame work, frontend + backend,</td>
+   
+  </tr>
+    <tr>
+    <td>Email:-</td>
+    <td>mangadevikadium@gmail.com</td>
+  </tr>
+
+    </tr>
+    <tr>
+    <td>Phone Number:-</td>
+    <td>91+9848691294</td>
+  </tr>
+ 
+</table>
+<h2>I have done table of my knowlege so kindly check it</h2><br>
+<h2>Contact me by above [phone number(or)Email]</h2>
+
+                    
+</body>
+</html>
